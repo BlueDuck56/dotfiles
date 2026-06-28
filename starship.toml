@@ -1,0 +1,29 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Define the order and content of the prompt
+format = """
+$directory\
+$git_branch\
+$git_status\
+$character\
+"""
+
+[directory]
+style = "bold cyan"
+truncate_to_repo = true # Truncates the path to the root of the git repo if inside one
+truncation_length = 3
+
+[git_branch]
+symbol = " " # Uses a standard git branch nerd font icon. Replace with "Branch: " or similar if you don't use Nerd Fonts.
+style = "bold magenta"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold red"
+# Shows simplified status symbols (e.g., modified, staged, untracked)
+format = "([$all_status$ahead_behind]($style) )"
+
+[character]
+success_symbol = "[❯](bold green) "
+error_symbol = "[❯](bold red) "
